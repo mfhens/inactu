@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>in.actu – Less Buzz, More Action</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      background: #f5f5f5;
+      line-height: 1.5;
+    }
+
+    header, footer {
+      background-color: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    header img {
+      height: 50px;
+      vertical-align: middle;
+    }
+
+    .content-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .hero-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+
+    .hero-image {
+      flex: 1 1 300px;
+      min-width: 300px;
+      max-width: 400px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      display: block;
+      border-right: 1px solid #eee;
+    }
+
+    .hero-text {
+      flex: 2;
+      padding: 2rem;
+    }
+
+    .hero-text h1 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      color: #2c3e50;
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #444;
+    }
+
+    .services-section {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .services-section h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      color: #2c3e50;
+    }
+
+    .services-list {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Logo -->
+  <header>
+    <img src="logo.png" alt="in.actu – Less Buzz, More Action">
+  </header>
+
+  <div class="content-wrapper">
+
+    <!-- Hero Section with Image -->
+    <section class="hero-section">
+      <div class="hero-image">
+        <!-- Replace 'portrait.png' with the actual filename of your attached image -->
+        <img src="portrait.png" alt="Portrait of Markus Friede Hens">
+      </div>
+      <div class="hero-text">
+        <h1>Less Buzz, More Action</h1>
+        <p>
+          At in.actu, I believe digital transformation should be 
+          practical, impactful, and refreshingly free of unnecessary hype. 
+          <strong>Markus Friede Hens</strong>, an accomplished IT Solution Architect 
+          with 25+ years of experience, helps organizations bridge the gap between 
+          strategic vision and real-world results.
+        </p>
+        <p>
+          From modernizing legacy systems to navigating complex regulatory landscapes, 
+          I combine deep technical knowledge with a passion for tangible outcomes. 
+          Our goal? To make IT investments simpler, smarter, and far less painful.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services / Focus Areas -->
+    <section class="services-section">
+      <h2>What I Do</h2>
+      <ul class="services-list">
+        <li><strong>Enterprise Architecture & Modernization:</strong> Transforming legacy monoliths into agile, scalable systems.</li>
+        <li><strong>Strategic IT Advisory:</strong> Aligning technology roadmaps with business objectives.</li>
+        <li><strong>Public Sector & Financial Services:</strong> Simplifying complex regulations, ensuring compliance, and boosting efficiency.</li>
+        <li><strong>Cloud Migration & Integration:</strong> Harnessing hybrid and multi-cloud environments for cost-effective performance.</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© <span id="year"></span> in.actu – Less Buzz, More Action</p>
+  </footer>
+
+  <script>
+    // Update the footer year automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
