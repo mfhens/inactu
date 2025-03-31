@@ -140,6 +140,20 @@
     .contact-list a:hover {
       text-decoration: underline;
     }
+
+    /* Countdown Timer */
+    .countdown-timer {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: #fff;
+      padding: 10px 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      font-size: 1rem;
+      color: #333;
+      z-index: 1000;
+    }
   </style>
 </head>
 <body>
@@ -147,6 +161,7 @@
   <!-- Header / Logo -->
   <header>
     <img src="logo.png" alt="in.actu – Less Buzz, More Action">
+    <div class="countdown-timer" id="countdown">Loading countdown...</div>
   </header>
 
   <div class="content-wrapper">
@@ -202,6 +217,30 @@
   <script>
     // Update the footer year automatically
     document.getElementById('year').textContent = new Date().getFullYear();
+    // Countdown Timer Script
+    const countdownElement = document.getElementById('countdown');
+    const targetDate = new Date('January 20, 2029 00:00:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const timeLeft = targetDate - now;
+
+      if (timeLeft <= 0) {
+        countdownElement.textContent = 'The date has arrived!';
+        return;
+      }
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    // Update the countdown every second
+    setInterval(updateCountdown, 1000);
+    updateCountdown(); // Initial call to display immediately
   </script>
 </body>
 </html>
