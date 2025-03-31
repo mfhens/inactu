@@ -154,6 +154,26 @@
       color: #333;
       z-index: 1000;
     }
+
+    /* Carousel Container */
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel-images {
+      display: flex;
+      transition: transform 1s ease-in-out;
+    }
+
+    .carousel-images img {
+      width: 100%;
+      flex-shrink: 0;
+    }
   </style>
 </head>
 <body>
@@ -168,9 +188,13 @@
 
     <!-- Hero Section with Image -->
     <section class="hero-section">
-      <div class="hero-image">
-        <!-- Replace 'portrait.png' with the actual filename of your attached image -->
-        <img src="portrait_vector.png" alt="Portrait of Markus Friede Hens">
+      <div class="carousel">
+        <div class="carousel-images">
+          <img src="portrait.png" alt="Ghibli">
+          <img src="portrait_blue.png" alt="Architecture Blueprint">
+          <img src="portrait_min.png" alt="Minimalist Design">
+          <img src="portrait_vector.png" alt="Vector">
+        </div>
       </div>
       <div class="hero-text">
         <h1>Less Buzz, More Action</h1>
@@ -221,6 +245,23 @@
     const countdownElement = document.getElementById('countdown');
     const targetDate = new Date('January 20, 2029 00:00:00').getTime();
 
+    const images = document.querySelector('.carousel-images');
+    const totalImages = images.children.length;
+
+    // Start with a random index
+    let currentIndex = Math.floor(Math.random() * totalImages);
+
+    function rotateCarousel() {
+      currentIndex = (currentIndex + 1) % totalImages; // Loop back to the first image
+      images.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    // Set the initial position to the random index
+    images.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    // Rotate the carousel every 3 seconds
+    setInterval(rotateCarousel, 300000);
+    
     function updateCountdown() {
       const now = new Date().getTime();
       const timeLeft = targetDate - now;
