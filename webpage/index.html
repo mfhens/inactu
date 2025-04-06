@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>in.actu – Less Buzz, More Action</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      background: #f5f5f5;
+      line-height: 1.5;
+    }
+
+    header, footer {
+      background-color: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    header img {
+      height: 50px;
+      vertical-align: middle;
+    }
+
+    .content-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .hero-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+
+    .hero-image {
+      flex: 1 1 300px;
+      min-width: 300px;
+      max-width: 400px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      display: block;
+      border-right: 1px solid #eee;
+    }
+
+    .hero-text {
+      flex: 2;
+      padding: 2rem;
+    }
+
+    .hero-text h1 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      color: #2c3e50;
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #444;
+    }
+
+    .services-section {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .services-section h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      color: #2c3e50;
+    }
+
+    .services-list {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 2rem;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 2rem;
+    }
+
+    .contact-section h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      color: #2c3e50;
+    }
+
+    .contact-section p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      color: #444;
+    }
+
+    .contact-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .contact-list li {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .contact-list a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    .contact-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* Countdown Timer */
+    .countdown-timer {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: #fff;
+      padding: 10px 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      font-size: 1rem;
+      color: #333;
+      z-index: 1000;
+    }
+
+    /* Carousel Container */
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel-images {
+      display: flex;
+      transition: transform 1s ease-in-out;
+    }
+
+    .carousel-images img {
+      width: 100%;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Logo -->
+  <header>
+    <img src="logo.jpg" alt="in.actu – Less Buzz, More Action">
+    <div class="countdown-timer" id="countdown">Loading countdown...</div>
+  </header>
+
+  <div class="content-wrapper">
+
+    <!-- Hero Section with Image -->
+    <section class="hero-section">
+      <div class="carousel">
+        <div class="carousel-images">
+          <img src="portrait.jpg" alt="Ghibli">
+          <img src="portrait_blue.jpg" alt="Architecture Blueprint">
+          <img src="portrait_min.jpg" alt="Minimalist Design">
+          <img src="portrait_vector.png" alt="Vector">
+        </div>
+      </div>
+      <div class="hero-text">
+        <h1>Less Buzz, More Action</h1>
+        <p>
+          I’m Markus Friede Hens, a freelance IT Solution Architect with over 25 years of experience. Under the banner of <strong>in.actu</strong>, I help organizations bridge the gap between strategic vision and real-world results.
+        </p>
+        <p>
+          At in.actu, digital transformation is practical and impactful – no unnecessary hype. I modernize legacy systems, navigate complex regulatory landscapes, and deliver actionable IT strategies.
+        </p>
+        <p>
+          The name <strong>in.actu</strong> reflects my commitment to taking ideas into action. It also plays on the Latin phrase <em>"in actu"</em>, meaning "in reality" or "in practice," emphasizing tangible outcomes and practical IT solutions.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services / Focus Areas -->
+    <section class="services-section">
+      <h2>What I Do</h2>
+      <ul class="services-list">
+        <li><strong>Enterprise Architecture & Modernization:</strong> Transforming legacy monoliths into agile, scalable systems.</li>
+        <li><strong>Strategic IT Advisory:</strong> Aligning technology roadmaps with business objectives.</li>
+        <li><strong>Public Sector & Financial Services:</strong> Simplifying complex regulations, ensuring compliance, and boosting efficiency.</li>
+        <li><strong>Cloud Migration & Integration:</strong> Harnessing hybrid and multi-cloud environments for cost-effective performance.</li>
+      </ul>
+    </section>
+
+      <!-- Contact Section -->
+    <section class="contact-section">
+      <h2>Contact</h2>
+      <p>Feel free to connect with me on LinkedIn or reach out via email.</p>
+        <ul class="contact-list">
+          <li><strong>Email:</strong> <a href="mailto:markus@friedehens.eu">Markus F. Hens</a></li>
+          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/markusfhens/" target="_blank">Markus' profile</a></li>
+        </ul>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© <span id="year"></span> in.actu – Less Buzz, More Action</p>
+  </footer>
+
+  <script>
+    // Update the footer year automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Countdown Timer Script
+    const countdownElement = document.getElementById('countdown');
+    const targetDate = new Date('January 20, 2029 00:00:00').getTime();
+
+    const images = document.querySelector('.carousel-images');
+    const totalImages = images.children.length;
+
+    // Start with a random index
+    let currentIndex = Math.floor(Math.random() * totalImages);
+
+    function rotateCarousel() {
+      currentIndex = (currentIndex + 1) % totalImages; // Loop back to the first image
+      images.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    // Set the initial position to the random index
+    images.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    // Rotate the carousel every 3 seconds
+    setInterval(rotateCarousel, 300000);
+    
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const timeLeft = targetDate - now;
+
+      if (timeLeft <= 0) {
+        countdownElement.textContent = 'The date has arrived!';
+        return;
+      }
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    // Update the countdown every second
+    setInterval(updateCountdown, 1000);
+    updateCountdown(); // Initial call to display immediately
+  </script>
+</body>
+</html>
