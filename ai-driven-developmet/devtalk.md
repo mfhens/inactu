@@ -1,41 +1,32 @@
-Excellent, Markus — this has the makings of a very strong and engaging talk. Let's scaffold your 1-hour session into a structured flow that works well for developers, includes a demo, stimulates reflection, and avoids the dreaded *“wall of slides”* problem.
+---
+marp: true
+paginate: true
+---
 
 ---
 
-# **Talk Title **
-
-*"AI-Driven Software Development: Friend, Foe, or Rubber Duck?"*
+# *"AI-Driven Software Development: Friend, Foe, or Rubber Duck?"*
 
 ---
 
-# **Session Structure**
+# Agenda
 
-| Segment | Topic                                   | Duration |
-| ------- | --------------------------------------- | -------- |
-| 1       | Introduction & Framing                  | 5 min    |
-| 2       | What is AI-Driven Development?          | 10 min   |
-| 3       | Live Demo (Copilot in IntelliJ)         | 15 min   |
-| 4       | The Dos and Don'ts                      | 10 min   |
-| 5       | Food for Thought: Where Are We Heading? | 10 min   |
-| 6       | Q\&A + Open Discussion                  | 10 min   |
-
----
-
-# **Detailed Breakdown**
+- Framing: Why this matters
+- What is AI-Driven Development?
+- Demo: Copilot in VS Code
+- Do’s & Don’ts (Field Notes)
+- Agentic Engineering (Claude Code Flow)
+- The Future
+- Q&A
 
 ---
 
-### 1️⃣ Introduction & Framing (5 min)
+# Why This Topic?
 
-**Key Points:**
-
-* Why this topic matters — it's not about *AI replacing developers*, but about *augmenting cognition*.
-* AI is becoming part of the toolchain like compilers, linters, and version control.
-* Developers here already use Copilot — today we explore *how to get better at it.*
-
-**No slides. Use simple Markdown headings in your code editor or Obsidian-style presentation.**
-
----
+- AI is now embedded in our developer workflows.
+- Developers ≠ replaced, but **augmented**.
+- We gain velocity — but must still apply judgment.
+- How do we become *good* at AI-driven development?
 
 ### 2️⃣ What is AI-Driven Development? (10 min)
 
@@ -64,7 +55,7 @@ sequenceDiagram
 
 ---
 
-### 3️⃣ Live Demo: Copilot in IntelliJ (15 min)
+### 3️⃣ Live Demo: Copilot in VS Code (15 min)
 
 **Goal:** Show both the power and the limitations.
 
@@ -98,7 +89,7 @@ sequenceDiagram
 
 ---
 
-# **Bonus Insight **
+# Bonus Insight
 
 * AI models sometimes **repeat bugs** you just fixed.
 * They **prefer happy-path code** unless explicitly told otherwise.
@@ -113,7 +104,36 @@ sequenceDiagram
 > "Treat the model as an eager junior developer. Good at cranking out boilerplate. Bad at nuance. Always needs code review."
 ---
 
-Here’s an enhanced version of the **Do’s and Don’ts** section, now featuring the real-world “agentic engineering” story from the *claude‑code‑flow* repository by ruvnet — perfect to illustrate how AI-driven orchestration works in practice.
+# Claude-Code-Flow 🧠
+
+### Agentic Engineering in Action
+
+* Multiple Claude agents:
+
+  * Researcher
+  * Coder
+  * Tester
+  * Security Auditor
+* Shared memory (CRDT-based)
+* Recursive self-improvement
+* Parallel task orchestration
+
+---
+
+# Claude Flow Architecture
+
+```mermaid
+flowchart TD
+    A[Task Input] --> B[Orchestrator]
+    B --> C[Memory Bank]
+    B --> D[Agents Pool]
+    D --> E[Coder Agent]
+    D --> F[Tester Agent]
+    D --> G[Security Agent]
+    E & F & G --> C
+    C --> B
+    B --> H[Validated Output]
+```
 
 ---
 
@@ -157,11 +177,6 @@ Here’s an enhanced version of the **Do’s and Don’ts** section, now featuri
 5. **Reinforce Do’s**: Highlight multi-stage prompts, memory, monitoring.
 6. **Warn Don’ts**: Avoid unmanaged scaling, missing rollback logic, ignoring logs.
 
----
-
-Together with Diwank’s field-notes, this story makes your **Do’s and Don’ts** both concrete and actionable — rooted in community practice and real code.
-
----
 
 **Next steps?**
 
@@ -180,9 +195,6 @@ Stimulate thinking:
 * Regulatory, ethical, and IP implications.
 * Future developer interviews may include “prompt design” and “AI tool usage”.
 
-**Optional visual:**
-A simple Mermaid mind map:
-
 ```mermaid
 mindmap
   root((Future of AI Dev))
@@ -193,182 +205,6 @@ mindmap
     Regulatory challenges
     Prompt engineering skills
 ```
-
----
-
-### 6️⃣ Q\&A and Open Floor (10 min)
-
-Invite debate:
-
-* “Who feels AI improves their coding productivity?”
-* “Who has seen it generate dangerous code?”
-* "What surprises you most?"
-
----
-
-Excellent — here’s a **complete Markdown scaffold** for your 1-hour *AI-Driven Software Development* talk, fully incorporating:
-
-* ✅ Your initial vision
-* ✅ The Diwank *Field Notes*
-* ✅ The *claude-code-flow* story
-* ✅ Live demo slots
-* ✅ Future perspective
-
-The structure is designed for:
-
-* Markdown rendering (e.g. Marp, Obsidian, HackMD)
-* Developer audience
-* Minimal slides, high engagement
-
----
-
-# AI-Driven Software Development
-### Friend, Foe — or Rubber Duck?
-
-Markus Friede Hens
-EY
-
----
-
-# Agenda
-
-- Framing: Why this matters
-- What is AI-Driven Development?
-- Demo: Copilot in VS Code
-- Do’s & Don’ts (Field Notes)
-- Agentic Engineering (Claude Code Flow)
-- The Future
-- Q&A
-
----
-
-# Why This Topic?
-
-- AI is now embedded in our developer workflows.
-- Developers ≠ replaced, but **augmented**.
-- We gain velocity — but must still apply judgment.
-- How do we become *good* at AI-driven development?
-
----
-
-# The Core Shift
-
-```mermaid
-graph TD;
-    Human-->AI;
-    AI-->Human;
-    Human-->Code;
-    AI-->Code;
-    Code-->Product;
-```
-
-* Co-creation, not automation.
-* Fast scaffolding — slow reasoning.
-* Prompting is a **new coding skill**.
-
----
-
-# Demo Time 🔧
-
-### Copilot + VS Code
-
-* Scaffold REST API
-* Generate parameterized tests
-* Refactor legacy code
-* Prompt explanations
-* Observe limitations
-
-> *“Velocity, not correctness.”*
-
----
-
-# Real-World Field Notes
-
-
-# DO ✅
-
-* Bootstrap boilerplate
-* Short, incremental prompts
-* Act like a code reviewer
-* Be explicit in instructions
-* Use for refactoring & documentation
-* Generate parameterized tests
-* Leverage context windows smartly
-* Use explainers on unknown code
-
----
-
-# DON'T ❌
-
-* Trust correctness blindly
-* Prompt long specs at once
-* Skip code review
-* Assume proper architecture
-* Ignore edge cases
-* Accept hallucinated APIs
-* Use AI-generated tests as sole coverage
-
----
-
-# AI Failure Modes ⚠
-
-* Repeats bugs you just fixed
-* Hallucinates APIs
-* Over-confident invalid logic
-* Happy-path bias
-* State inconsistency
-
----
-
-# Claude-Code-Flow 🧠
-
-### Agentic Engineering in Action
-
-* Multiple Claude agents:
-
-  * Researcher
-  * Coder
-  * Tester
-  * Security Auditor
-* Shared memory (CRDT-based)
-* Recursive self-improvement
-* Parallel task orchestration
-
----
-
-# Claude Flow Architecture
-
-```mermaid
-flowchart TD
-    A[Task Input] --> B[Orchestrator]
-    B --> C[Memory Bank]
-    B --> D[Agents Pool]
-    D --> E[Coder Agent]
-    D --> F[Tester Agent]
-    D --> G[Security Agent]
-    E & F & G --> C
-    C --> B
-    B --> H[Validated Output]
-```
-
----
-
-# Key Lessons from Agentic Engineering
-
-✅ Do:
-
-* Break tasks into agent roles
-* Use shared memory for context
-* Monitor agents' progress
-* Handle failures gracefully
-
-❌ Don’t:
-
-* Rely on one-shot prompts
-* Skip monitoring
-* Let agents drift without oversight
-
----
 
 # Where Are We Going?
 
@@ -428,37 +264,8 @@ flowchart TD
 
 # Thank You
 
-**Markus / \[Your Contact Info]**
+**Markus / markus.hens@dk.ey.com**
 
 *No Word. No PowerPoint. Only Markdown, Mermaid, and Code.*
 
 ---
-
-```
-
----
-
-# ✅ Summary of What You Have Now:
-
-- Modular
-- Fully extensible
-- Live-demo friendly
-- Low-slide-fatigue
-- Technically solid
-- Provocative enough to keep 200 developers engaged
-
----
-
-**Next Optional Add-Ons:**
-
-1. **Demo Script** for your live Copilot demo.
-2. **Prompt Engineering Cheat Sheet** you can share as handout.
-3. **Speaker Notes version** to guide your flow.
-
-👉 If you want, we can build these next to fully weaponize your delivery. Shall we?
-```
-
-
-
-
-
