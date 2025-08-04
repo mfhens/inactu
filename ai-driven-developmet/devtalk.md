@@ -1,9 +1,14 @@
 ---
 marp: true
 paginate: true
+theme: ./ey-marp-theme.css
+author: Markus Friede Hens
 ---
 
----
+<script type="module">
+  import mermaid from 'https://unpkg.com/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
 
 # *"AI-Driven Software Development: Friend, Foe, or Rubber Duck?"*
 
@@ -27,45 +32,52 @@ paginate: true
 - Developers ≠ replaced, but **augmented**.
 - We gain velocity — but must still apply judgment.
 - How do we become *good* at AI-driven development?
+---
 
-### 2️⃣ What is AI-Driven Development? (10 min)
+# What is AI-Driven Development?
 
-**Core Concepts:**
+<div style="display: flex; gap: 2rem;">
+  <div style="flex: 1;">
 
-* Foundation models (LLMs) as fuzzy pair programmers.
-* Strength: Pattern completion, boilerplate, simple algorithms, docstrings, tests.
-* Weakness: Logical reasoning, architectural decisions, long-range dependencies.
-* AI-driven software development != Auto-coding — it's interactive co-creation.
-* Models hallucinate: high fluency, low factual grounding.
+  **Core Concepts:**
 
-**Diagram:** Mermaid sequence diagram to show developer-AI interaction loop.
+  - Foundation models (LLMs) as fuzzy pair programmers
+  - **Strength:** Pattern completion, boilerplate, simple algorithms, docstrings, tests
+  - **Weakness:** Logical reasoning, architectural decisions, long-range dependencies
+  - AI-driven software development != Auto-coding — it's interactive co-creation
+  - Models hallucinate: high fluency, low factual grounding
 
-Example:
+  </div>
 
-```mermaid
-sequenceDiagram
-    participant Dev as Developer
-    participant AI as Copilot
-    Dev->>AI: Write a function to parse CSV
-    AI-->>Dev: Suggests code
-    Dev->>AI: Modify to handle edge case
-    AI-->>Dev: Updated code
-    Dev->>Dev: Validates, tests, integrates
-```
+  <div style="flex: 1;">
+    <div class="mermaid-container">
+      <div class="mermaid">
+      sequenceDiagram
+          participant Dev as Developer
+          participant AI as Copilot
+          Dev->>AI: Write a function to parse CSV
+          AI-->>Dev: Suggests code
+          Dev->>AI: Modify to handle edge case
+          AI-->>Dev: Updated code
+          Dev->>Dev: Validates, tests, integrates
+      </div>
+    </div>
+  </div>
+</div>
 
 ---
 
-### 3️⃣ Live Demo: Copilot in VS Code (15 min)
+# Live Demo: Copilot in VS Code (15 min)
 
 **Goal:** Show both the power and the limitations.
 
 **Demo ideas:**
 
-* Implement a small REST API controller.
-* Generate tests.
-* Refactor some legacy-looking code.
-* Ask it for architectural suggestions (and show where it gets it wrong).
-* Use *"Explain this code"* feature.
+- Implement a small REST API controller.
+- Generate tests.
+- Refactor some legacy-looking code.
+- Ask it for architectural suggestions (and show where it gets it wrong).
+- Use *"Explain this code"* feature.
 
 **Key takeaway:**
 
@@ -73,7 +85,8 @@ sequenceDiagram
 
 ---
 
-### 4️⃣ Dos and Don'ts (10 min)
+# Dos and Don'ts
+<!-- _class: tight-table -->
 
 | ✅ Do                                                                          | ❌ Don't                                                           |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------- |
@@ -91,16 +104,13 @@ sequenceDiagram
 
 # Bonus Insight
 
-* AI models sometimes **repeat bugs** you just fixed.
-* They **prefer happy-path code** unless explicitly told otherwise.
-* They may silently **invent APIs** that don't exist.
-* Sometimes they confidently propose **logically invalid fixes**.
-* They are prone to **state inconsistency** when large context windows are overloaded.
+- AI models sometimes **repeat bugs** you just fixed.
+- They **prefer happy-path code** unless explicitly told otherwise.
+- They may silently **invent APIs** that don't exist.
+- Sometimes they confidently propose **logically invalid fixes**.
+- They are prone to **state inconsistency** when large context windows are overloaded.
 
 ---
-
-**Key Quote you might even project during the talk:**
-
 > "Treat the model as an eager junior developer. Good at cranking out boilerplate. Bad at nuance. Always needs code review."
 ---
 
@@ -108,36 +118,39 @@ sequenceDiagram
 
 ### Agentic Engineering in Action
 
-* Multiple Claude agents:
-
-  * Researcher
-  * Coder
-  * Tester
-  * Security Auditor
-* Shared memory (CRDT-based)
-* Recursive self-improvement
-* Parallel task orchestration
+- Multiple Claude agents:
+  - Researcher
+  - Coder
+  - Tester
+  - Security Auditor
+- Shared memory (CRDT-based)
+- Recursive self-improvement
+- Parallel task orchestration
 
 ---
 
 # Claude Flow Architecture
 
-```mermaid
-flowchart TD
-    A[Task Input] --> B[Orchestrator]
-    B --> C[Memory Bank]
-    B --> D[Agents Pool]
-    D --> E[Coder Agent]
-    D --> F[Tester Agent]
-    D --> G[Security Agent]
-    E & F & G --> C
-    C --> B
-    B --> H[Validated Output]
-```
+<div class="mermaid-container">
+    <div class="mermaid">
+  flowchart TD
+      A[Task Input] --> B[Orchestrator]
+      B --> C[Memory Bank]
+      B --> D[Agents Pool]
+      D --> E[Coder Agent]
+      D --> F[Tester Agent]
+      D --> G[Security Agent]
+      E & F & G --> C
+      C --> B
+      B --> H[Validated Output]
+  </div>
+</div>
 
 ---
 
-## ✅ Do & ❌ Don’t (Enhanced)
+# ✅ Do & ❌ Don’t
+
+<!-- _class: tight-table -->
 
 | ✅ Do                                                                                                                                                    | ❌ Don't                                                      |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -153,12 +166,16 @@ flowchart TD
 
 ---
 
-### 🧠 The *claude‑code‑flow* Story: Agentic Engineering in Action
+# 🧠 The *claude‑code‑flow* Story: Agentic Engineering in Action
 
-* **Multi-agent orchestration**: ruvnet’s repository demonstrates running dozens of Claude-powered agents in parallel (researcher, coder, tester, security‑auditor) — all coordinated via a shared memory bank and orchestrator ([github.com][1]).
-* **Recursive development**: As noted on Reddit, the author built *claude‑flow* itself using the same system — effectively a self-improving, modular engineering swarm ([reddit.com][2]).
-* **Cost-effective scaling**: One developer comments you can run “a full AI R\&D team...for what you'd pay a junior dev for a few hours” ([reddit.com][2]).
-* **Shared memory & monitoring**: With a CRDT-backed memory bank, agents coordinate knowledge and maintain coherence across tasks ([github.com][1]).
+- **Multi-agent orchestration**: ruvnet’s repository demonstrates running dozens of Claude-powered agents in parallel (researcher, coder, tester, security‑auditor) — all coordinated via a shared memory bank and orchestrator ([github.com][1]).
+- **Recursive development**: As noted on Reddit, the author built *claude‑flow* itself using the same system — effectively a self-improving, modular engineering swarm ([reddit.com][2]).
+- **Cost-effective scaling**: One developer comments you can run “a full AI R\&D team...for what you'd pay a junior dev for a few hours” ([reddit.com][2]).
+- **Shared memory & monitoring**: With a CRDT-backed memory bank, agents coordinate knowledge and maintain coherence across tasks ([github.com][1]).
+
+[1]: https://github.com/ruvnet/claude-code-flow?utm_source=chatgpt.com "ruvnet/claude-code-flow: This mode serves as a code-first orchestration ..."
+[2]: https://www.reddit.com/r/ClaudeAI/comments/1l87dj7/claudeflow_multiagent_orchestration_platform_for/?utm_source=chatgpt.com "Multi-Agent Orchestration Platform for Claude-Code (npx claude-flow)"
+[3]: https://codenotary.com/blog/using-claude-code-and-aider-to-refactor-large-projects-enhancing-maintainability-and-scalability?utm_source=chatgpt.com "Using Claude Code and Aider to Refactor Large Projects - Codenotary"
 
 ---
 
@@ -169,7 +186,6 @@ flowchart TD
 1. **Introduce**: “This isn't just hypothetical—look at *claude‑code‑flow*, where hundreds of agents collaborate on real code.”
 2. **Explain the setup**: Describe the roles, shared memory, recursive development loop, and parallelism.
 3. **Pull out lessons**:
-
    * Task orchestration > one-shot coding
    * Context sharing prevents duplication and inconsistencies
    * Monitoring + failure control = production readiness
@@ -177,60 +193,66 @@ flowchart TD
 5. **Reinforce Do’s**: Highlight multi-stage prompts, memory, monitoring.
 6. **Warn Don’ts**: Avoid unmanaged scaling, missing rollback logic, ignoring logs.
 
-
 **Next steps?**
-
-[1]: https://github.com/ruvnet/claude-code-flow?utm_source=chatgpt.com "ruvnet/claude-code-flow: This mode serves as a code-first orchestration ..."
-[2]: https://www.reddit.com/r/ClaudeAI/comments/1l87dj7/claudeflow_multiagent_orchestration_platform_for/?utm_source=chatgpt.com "Multi-Agent Orchestration Platform for Claude-Code (npx claude-flow)"
-[3]: https://codenotary.com/blog/using-claude-code-and-aider-to-refactor-large-projects-enhancing-maintainability-and-scalability?utm_source=chatgpt.com "Using Claude Code and Aider to Refactor Large Projects - Codenotary"
-
-
-### 5️⃣ Food for Thought: The Future (10 min)
-
-Stimulate thinking:
-
-* How will AI change your role?
-* From coding → to *code curation*, *system design*, *problem framing*.
-* Emergence of agentic programming (AutoGPT-style).
-* Regulatory, ethical, and IP implications.
-* Future developer interviews may include “prompt design” and “AI tool usage”.
-
-```mermaid
-mindmap
-  root((Future of AI Dev))
-    Coding assistant
-    Code review automation
-    CI/CD integration
-    Autonomous agents
-    Regulatory challenges
-    Prompt engineering skills
-```
-
-# Where Are We Going?
-
-* Code generation → **Code orchestration**
-* Developers as **AI team leads**
-* New skills:
-
-  * Prompt design
-  * System curation
-  * Agent management
-* Ethical, regulatory & IP frontiers ahead
 
 ---
 
 # Food for Thought
 
-> Will future developers write code —
-> or will they orchestrate teams of agents?
+<!-- _class: table-with-mermaid -->
+<!-- _no-fragment -->
+
+<style scoped>
+.table-with-mermaid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+.table-with-mermaid table {
+  width: 100%;
+  font-size: 0.9em;
+  border-collapse: collapse;
+}
+.table-with-mermaid th,
+.table-with-mermaid td {
+  border: 1px solid #444;
+  padding: 0.4em 0.6em;
+}
+</style>
+
+Will future developers write code — or will they orchestrate teams of agents?
+
+<div class="table-with-mermaid">
+
+<!-- Column 1: Table -->
+<div>
 
 | Old World                     | AI-Driven World                   |
-| ----------------------------- | --------------------------------- |
-| Code as craft                 | Code as raw material              |
-| Syntax mastery                | System modeling mastery           |
-| Framework expertise           | Problem decomposition expertise   |
-| Boilerplate knowledge         | Context curation                  |
-| Senior dev =  language expert | Senior dev = systems orchestrator |
+|------------------------------|-----------------------------------|
+| Code as craft                | Code as raw material              |
+| Syntax mastery               | System modeling mastery           |
+| Framework expertise          | Problem decomposition expertise   |
+| Boilerplate knowledge        | Context curation                  |
+| Senior dev = language expert| Senior dev = systems orchestrator |
+
+</div>
+
+<!-- Column 2: Mermaid -->
+<div>
+  <div class="mermaid-container">
+    <div class="mermaid">
+      mindmap
+        root((Future of AI Dev))
+          Coding assistant
+          Code review automation
+          CI/CD integration
+          Autonomous agents
+          Regulatory challenges
+          Prompt engineering skills
+    </div>
+  </div>
+</div>
 
 ---
 
@@ -255,10 +277,9 @@ mindmap
 
 # Q\&A
 
-* Real-world experiences?
-* Surprises with Copilot?
-* Fears? Optimism?
-* Let's discuss!
+- Real-world experiences?
+- Surprises with Copilot?
+- Fears? Optimism?
 
 ---
 
@@ -269,3 +290,4 @@ mindmap
 *No Word. No PowerPoint. Only Markdown, Mermaid, and Code.*
 
 ---
+

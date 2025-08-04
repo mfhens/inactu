@@ -1,0 +1,231 @@
+/* EY-Inspired Marp Theme */
+/* Based on Markus' PowerPoint template and EY brand CI (dark background, yellow highlight) */
+
+@import 'default';
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+/* Base slide styling */
+section {
+  background-color: #000000;
+  color: #FFFFFF;
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  font-size: 1.3em;
+  padding: 2em;
+}
+
+/* ✂ Disable animations globally */
+*,
+*:before,
+*:after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Title slide */
+section.title h1 {
+  color: #FFCD00;
+  font-size: 2.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.5em;
+}
+
+section.title h2 {
+  color: #DDDDDD;
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+/* Headings */
+h1, h2, h3 {
+  color: #FFCD00;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.2em; color: #AAAAAA; text-transform: uppercase; }
+
+/* Links */
+a {
+  color: #FFCD00;
+  text-decoration: underline;
+}
+
+/* Lists */
+ul, ol {
+  margin-left: 1.5em;
+}
+
+li::marker {
+  color: #FFCD00;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid #FFCD00;
+  padding-left: 1em;
+  color: #CCCCCC;
+  font-style: italic;
+}
+
+/* Footer */
+footer {
+  font-size: 0.7em;
+  color: #999999;
+  text-align: right;
+  position: absolute;
+  bottom: 1.2em;
+  right: 2em;
+}
+
+/* Pagination */
+section::after {
+  content: attr(data-marpit-pagination);
+  position: absolute;
+  bottom: 1.2em;
+  left: 2em;
+  font-size: 0.7em;
+  color: #FFCD00;
+}
+
+/* Code blocks */
+pre code {
+  background: #1a1a1a;
+  color: #FFEE88;
+  border-left: 3px solid #FFCD00;
+  padding: 0.6em;
+  font-size: 0.9em;
+  border-radius: 4px;
+}
+
+/* Highlighted text */
+strong, em, mark {
+  color: #FFCD00;
+  font-weight: bold;
+  background: transparent;
+}
+
+/* Quote slide variant (optional _class: quote) */
+section.quote {
+  background-color: #111111;
+  color: #FFCD00;
+  font-style: italic;
+}
+
+/* Background image with gradient overlay option (for specific slides) */
+section.bg-image {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url('./background-ey.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #FFFFFF;
+}
+
+/* ===== FINAL BULLETPROOF FIX FOR DISABLING ANIMATIONS ===== */
+
+section .fragment {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+  transition: none !important;
+  visibility: visible !important;
+  display: inherit !important;
+}
+
+section li.fragment {
+  opacity: 1 !important;
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+/* Disable fragments globally */
+section [data-marpit-fragment] {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+  transition: none !important;
+  visibility: visible !important;
+}
+
+/* === EY Style Table: Light Background, High Contrast === */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1em;
+  color: #000000 !important;
+  background-color: #ffffff !important;
+}
+
+thead {
+  background-color: #f3f3f3 !important;
+  color: #FFCD00 !important;
+  font-weight: bold !important;
+  border-bottom: 2px solid #e0e0e0 !important;
+}
+
+th, td {
+  padding: 0.7em 1.2em !important;
+  border: 1px solid #dddddd !important;
+  vertical-align: top !important;
+  color: #000000 !important;
+}
+
+/* Zebra striping with readable colors */
+tr:nth-child(odd) td {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+tr:nth-child(even) td {
+  background-color: #f3f3f3 !important;
+  color: #000000 !important;
+}
+
+/* Highlighted text */
+td strong,
+td em,
+td mark {
+  color: #FFCD00 !important;
+  font-weight: bold !important;
+  background: none !important;
+}
+
+section.tight-table table {
+  font-size: 0.85em;
+}
+
+.mermaid-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    max-width: 500px;
+}
+
+.mermaid {
+    font-size: 14px;
+}
+
+.mermaid .actor {
+    fill: #4a90e2;
+}
+
+.mermaid .messageLine0 {
+    stroke: #4a90e2;
+    stroke-width: 2;
+}
+
+.mermaid .messageText {
+    fill: #333;
+    font-size: 12px;
+}
