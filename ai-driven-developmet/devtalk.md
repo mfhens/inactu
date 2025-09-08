@@ -18,7 +18,7 @@ author: Markus Friede Hens
 
 - Framing: Why this matters
 - What is AI-Driven Development?
-- Demo: Copilot in VS Code
+- Demo: Codex in VS Code
 - Do’s & Don’ts (Field Notes)
 - Agentic Engineering (Claude Code Flow)
 - The Future
@@ -67,7 +67,7 @@ author: Markus Friede Hens
 
 ---
 
-# Live Demo: Copilot in VS Code (15 min)
+# Live Demo: Codex in VS Code (15 min)
 
 **Goal:** Show both the power and the limitations.
 
@@ -265,7 +265,7 @@ Will future developers write code — or will they orchestrate teams of agents?
 - 🔍 **Code review & AI verification**
 - 🎯 **Prompt engineering and instruction clarity**
 - 🚦 **Ethical, regulatory, and safety oversight**
-
+- Come back to do something fun in half an hour
 ---
 
 # Takeaway
