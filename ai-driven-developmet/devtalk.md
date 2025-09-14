@@ -5,289 +5,202 @@ theme: ./ey-marp-theme.css
 author: Markus Friede Hens
 ---
 
-<script type="module">
-  import mermaid from 'https://unpkg.com/mermaid@10/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({ startOnLoad: true });
-</script>
-
-# *"AI-Driven Software Development: Friend, Foe, or Rubber Duck?"*
+# *AI-Driven Software Development: Friend, Foe, or Rubber Duck?*
 
 ---
 
 # Agenda
-
-- Framing: Why this matters
-- What is AI-Driven Development?
-- Demo: Codex in VS Code
-- Do’s & Don’ts (Field Notes)
-- Agentic Engineering (Claude Code Flow)
-- The Future
+- Why this matters in 2025
+- My experience: 80/10/10 workflow
+- Modern AI-driven development pipeline
+- Demo: TDD with Copilot & Claude
+- Do’s & Don’ts 2025 edition
+- Emerging frontier: Agentic engineering
+- Future skills that stay valuable
 - Q&A
 
 ---
 
-# Why This Topic?
-
-- AI is now embedded in our developer workflows.
-- Developers ≠ replaced, but **augmented**.
-- We gain velocity — but must still apply judgment.
-- How do we become *good* at AI-driven development?
----
-
-# What is AI-Driven Development?
-
-<div style="display: flex; gap: 2rem;">
-  <div style="flex: 1;">
-
-  **Core Concepts:**
-
-  - Foundation models (LLMs) as fuzzy pair programmers
-  - **Strength:** Pattern completion, boilerplate, simple algorithms, docstrings, tests
-  - **Weakness:** Logical reasoning, architectural decisions, long-range dependencies
-  - AI-driven software development != Auto-coding — it's interactive co-creation
-  - Models hallucinate: high fluency, low factual grounding
-
-  </div>
-
-  <div style="flex: 1;">
-    <div class="mermaid-container">
-      <div class="mermaid">
-      sequenceDiagram
-          participant Dev as Developer
-          participant AI as Copilot
-          Dev->>AI: Write a function to parse CSV
-          AI-->>Dev: Suggests code
-          Dev->>AI: Modify to handle edge case
-          AI-->>Dev: Updated code
-          Dev->>Dev: Validates, tests, integrates
-      </div>
-    </div>
-  </div>
-</div>
+# About me …
+- Systems engineer by training, programming ~15 years
+- Enterprise Architect and AI consultant
+- Early adopter of AI coding agents in production
+- Driving ~30 % faster delivery from proposal to production
 
 ---
 
-# Live Demo: Codex in VS Code (15 min)
+# Why This Topic Matters – 2025
 
-**Goal:** Show both the power and the limitations.
-
-**Demo ideas:**
-
-- Implement a small REST API controller.
-- Generate tests.
-- Refactor some legacy-looking code.
-- Ask it for architectural suggestions (and show where it gets it wrong).
-- Use *"Explain this code"* feature.
-
-**Key takeaway:**
-
-> *AI provides velocity, not judgment.*
+- AI coding agents have moved from novelty to **default toolchain**.
+- Devs are **augmented**, not replaced.
+- Velocity is easy—**reliability and governance** are the hard parts.
+- The question isn’t *if* we use AI, but **how to use it without losing engineering discipline**.
 
 ---
 
-# Dos and Don'ts
-<!-- _class: tight-table -->
+# My 80 / 10 / 10 Workflow
 
-| ✅ Do                                                                          | ❌ Don't                                                           |
-| ----------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| Use AI to **bootstrap boilerplate** code                                      | Expect it to get **architecture right**                           |
-| Use **short, incremental prompts**                                            | Dump large multi-paragraph specs and expect coherent output       |
-| Think like a **code reviewer**: Always verify AI output                       | Assume correctness — especially on edge cases, concurrency, state |
-| Use AI to **refactor and explain unfamiliar code**                            | Trust its explanations without your own understanding             |
-| Be very **explicit**: "Do X in Y style with Z library"                        | Leave instructions vague — LLMs hallucinate gaps                  |
-| Use AI to write **parameterized tests** and mocks                             | Rely on AI-generated tests as your sole safety net                |
-| Use **code context carefully**: provide files, function headers               | Assume AI can infer missing business rules                        |
-| Leverage AI for **docstrings, comments, and documentation**                   | Let documentation drift by not validating technical accuracy      |
-| Use AI as a **partner, not a servant**: interactive back-and-forth works best | Expect full solutions from single-shot prompts                    |
+| Phase                                    | Focus                                                                                              | AI’s contribution                                                                          |
+| ---------------------------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| **80 % – Rapid baseline implementation** | Build a **complete first version** of the solution quickly, capturing architecture and core logic. | Generate initial scaffolding and repetitive code; accelerate boilerplate and integrations. |
+| **10 % – Targeted validation**           | Identify the **critical logic paths** and write thorough automated tests before release.           | Draft unit- and integration-test skeletons; help design edge-case coverage.                |
+| **10 % – Refine & harden**               | Refactor for readability, performance, and long-term maintainability; finalise documentation.      | Suggest refactors, produce documentation, support code review.                             |
+
+
+⚠️ **Be critical:** AI will sometimes panic or hallucinate when domain knowledge is thin.
 
 ---
 
-# Bonus Insight
+# Modern AI-Driven Dev Pipeline
 
-- AI models sometimes **repeat bugs** you just fixed.
-- They **prefer happy-path code** unless explicitly told otherwise.
-- They may silently **invent APIs** that don't exist.
-- Sometimes they confidently propose **logically invalid fixes**.
-- They are prone to **state inconsistency** when large context windows are overloaded.
+```mermaid
+flowchart LR
+  A[Proposal & Stakeholder Buy-in] --> B[Architecture & Design Doc]
+  B --> C[Design Review – shred it!]
+  C --> D[Subsystem Docs & Backlog]
+  D --> E[Test-Driven Development]
+  E --> F[Human + AI Code Reviews]
+  F --> G[Staging & Prod Release]
+````
 
----
-> "Treat the model as an eager junior developer. Good at cranking out boilerplate. Bad at nuance. Always needs code review."
----
-
-# Claude-Code-Flow 🧠
-
-### Agentic Engineering in Action
-
-- Multiple Claude agents:
-  - Researcher
-  - Coder
-  - Tester
-  - Security Auditor
-- Shared memory (CRDT-based)
-- Recursive self-improvement
-- Parallel task orchestration
+* **Front-load the pain**: rigorous design and review before code
+* **TDD first**: AI writes tests before features
+* **Two-dev approval**: humans own the final merge
 
 ---
 
-# Claude Flow Architecture
+# Demo (10 min)
 
-<div class="mermaid-container">
-    <div class="mermaid">
-  flowchart TD
-      A[Task Input] --> B[Orchestrator]
-      B --> C[Memory Bank]
-      B --> D[Agents Pool]
-      D --> E[Coder Agent]
-      D --> F[Tester Agent]
-      D --> G[Security Agent]
-      E & F & G --> C
-      C --> B
-      B --> H[Validated Output]
-  </div>
-</div>
+**Test-Driven Development with Copilot & Claude**
+
+* Start with failing tests for a feature
+* Use AI to implement until tests pass
+* Show where AI stumbles without domain context
+
+> *Velocity without judgment is a liability.*
 
 ---
 
-# ✅ Do & ❌ Don’t
+# Do’s & Don’ts — 2025 Edition
 
-<!-- _class: tight-table -->
-
-| ✅ Do                                                                                                                                                    | ❌ Don't                                                      |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| Use **multi-stage prompts** — break down tasks into clear, atomic steps                                                                                 | Assume one-shot prompts will yield correct results           |
-| Treat the model as a **partner of partners** — e.g., use **Claude‑Flow** to spawn and coordinate multiple specialized agents                            | Expect a single AI tool to handle everything flawlessly      |
-| Empower agents with specific roles: coder, tester, researcher, security auditor                                                                         | Leave agent roles undefined and hope for the best            |
-| Use **shared memory** across agents — Claude‑Flow’s memory bank ensures context and consistency ([github.com][1], [reddit.com][2], [codenotary.com][3]) | Ignore persistence—each prompt loses context and coherence   |
-| Build by leveraging **recursive development**: let agents help build their own orchestrator                                                             | Treat the system as static — no continuous improvement loop  |
-| Scale to parallel tasks: let a swarm of agents handle complex workflows simultaneously                                                                  | Funnel everything sequentially — underutilizing AI potential |
-| Monitor each agent’s progress via dashboards or terminal UIs, inspect logs                                                                              | Stay dark — no visibility means no control                   |
-| Be clear about **failure policies**, rollbacks, agent retry logic                                                                                       | Trust agents implicitly — no undo or safe guardrails         |
-| Combine advanced agent orchestration (Claude‑Flow) with interactive prompt-based tools (Copilot, Cursor) for complementary strengths                    | Use only one toolchain — risk redundancy or gaps             |
+| ✅ Do                                                   | ❌ Don’t                                    |
+| ------------------------------------------------------ | ------------------------------------------ |
+| Start with a solid **technical design doc**            | Jump straight into coding                  |
+| Use AI to **generate tests first**                     | Rely on AI-generated code without tests    |
+| Treat AI as a **pair programmer**                      | Expect it to own architectural decisions   |
+| Give **tight, incremental prompts**                    | Dump multi-page specs and hope             |
+| Review every pull request with **two human approvals** | Assume AI code is production-ready         |
+| Track **metrics** (speed, defects, coverage)           | Talk about “productivity” without data     |
+| Be explicit about **IP and data-leakage policies**     | Paste confidential code into public models |
 
 ---
 
-# 🧠 The *claude‑code‑flow* Story: Agentic Engineering in Action
+# Bonus Lessons Learned (2025)
 
-- **Multi-agent orchestration**: ruvnet’s repository demonstrates running dozens of Claude-powered agents in parallel (researcher, coder, tester, security‑auditor) — all coordinated via a shared memory bank and orchestrator ([github.com][1]).
-- **Recursive development**: As noted on Reddit, the author built *claude‑flow* itself using the same system — effectively a self-improving, modular engineering swarm ([reddit.com][2]).
-- **Cost-effective scaling**: One developer comments you can run “a full AI R\&D team...for what you'd pay a junior dev for a few hours” ([reddit.com][2]).
-- **Shared memory & monitoring**: With a CRDT-backed memory bank, agents coordinate knowledge and maintain coherence across tasks ([github.com][1]).
+* Even with stronger models, **duplicate bugs** creep in when context is fragmented.  
+* New models are better at reasoning, but **edge cases still need explicit prompting**.  
+* Hallucinated APIs and “almost correct” logic remain a real risk when domain specificity is missing.  
+* Large context windows help—but **cross-session state**, long chains of dependency, and legacy technical debt still break assumptions.  
 
-[1]: https://github.com/ruvnet/claude-code-flow?utm_source=chatgpt.com "ruvnet/claude-code-flow: This mode serves as a code-first orchestration ..."
-[2]: https://www.reddit.com/r/ClaudeAI/comments/1l87dj7/claudeflow_multiagent_orchestration_platform_for/?utm_source=chatgpt.com "Multi-Agent Orchestration Platform for Claude-Code (npx claude-flow)"
-[3]: https://codenotary.com/blog/using-claude-code-and-aider-to-refactor-large-projects-enhancing-maintainability-and-scalability?utm_source=chatgpt.com "Using Claude Code and Aider to Refactor Large Projects - Codenotary"
+> *Treat the model like an eager junior developer:  
+> capable, fast—but always in need of oversight, depth in domain, and human review.*
+
 
 ---
 
-### 🎤 How to Use This Story in Your Talk
+# Claude-Code-Flow – A Vertical Take on AI Software Teams
 
-**Live narrative path:**
+### Why it stands out
+Unlike general multi-agent frameworks (CrewAI, LangGraph, OpenAI Agents SDK),  
+**Claude-Code-Flow** was built *specifically* to automate the **software-development lifecycle**.
 
-1. **Introduce**: “This isn't just hypothetical—look at *claude‑code‑flow*, where hundreds of agents collaborate on real code.”
-2. **Explain the setup**: Describe the roles, shared memory, recursive development loop, and parallelism.
-3. **Pull out lessons**:
-   * Task orchestration > one-shot coding
-   * Context sharing prevents duplication and inconsistencies
-   * Monitoring + failure control = production readiness
-4. **Contrast**: “Compare that to using a single Copilot window where context is lost per prompt.”
-5. **Reinforce Do’s**: Highlight multi-stage prompts, memory, monitoring.
-6. **Warn Don’ts**: Avoid unmanaged scaling, missing rollback logic, ignoring logs.
+---
 
-**Next steps?**
+### How it Works
+- **Orchestrator** coordinates a small “AI dev team”:
+  - **Researcher** – gathers requirements & explores libraries
+  - **Coder** – writes and refactors code
+  - **Tester** – designs and runs tests
+  - **Security Auditor** – checks for vulnerabilities
+- **Shared memory bank** (CRDT) keeps all agents in sync.
+- **Recursive self-improvement** – the system iteratively enhanced itself.
+
+---
+
+```mermaid
+flowchart TD
+    A[Feature Request] --> B[Orchestrator]
+    B --> C[Shared Memory]
+    B --> D[Agents Pool]
+    D --> E[Researcher]
+    D --> F[Coder]
+    D --> G[Tester]
+    D --> H[Security Auditor]
+    E & F & G & H --> C
+    C --> B
+    B --> I[Validated, Tested Code]
+````
+
+---
+
+### Lessons for AI-Driven Development
+
+| Insight                                    | Why it matters                                             |
+| ------------------------------------------ | ---------------------------------------------------------- |
+| **End-to-end automation of the dev cycle** | Shows how AI can cover requirements → code → test → review |
+| **Role-based agents mirror human teams**   | Makes it easier to map to existing SDLC practices          |
+| **Shared memory prevents context loss**    | Critical for multi-step codebases                          |
+| **Still a proof-of-concept**               | Valuable ideas, but not a production framework in 2025     |
+
+---
+
+> **Takeaway:**
+> Claude-Code-Flow isn’t just “agents in general”—it’s a glimpse of an *AI software engineering team*, a vertical blueprint for how multi-agent systems can build and maintain code.
+
+---
+
+# What Actually Stays Valuable
+
+* 🧠 Deep **business understanding**
+* 🔧 **Systems thinking** & architecture
+* ⚙️ **Resilience engineering**
+* 🧪 **Test design** and coverage strategy
+* 🔍 **Code review** & AI verification
+* 🎯 **Prompt design** as a core engineering skill
+* 🚦 **Ethical and regulatory oversight**
 
 ---
 
 # Food for Thought
 
-<!-- _class: table-with-mermaid -->
-<!-- _no-fragment -->
-
-<style scoped>
-.table-with-mermaid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  align-items: start;
-}
-.table-with-mermaid table {
-  width: 100%;
-  font-size: 0.9em;
-  border-collapse: collapse;
-}
-.table-with-mermaid th,
-.table-with-mermaid td {
-  border: 1px solid #444;
-  padding: 0.4em 0.6em;
-}
-</style>
-
-Will future developers write code — or will they orchestrate teams of agents?
-
-<div class="table-with-mermaid">
-
-<!-- Column 1: Table -->
-<div>
-
-| Old World                     | AI-Driven World                   |
-|------------------------------|-----------------------------------|
+| Old World                    | AI-Driven World                   |
+| ---------------------------- | --------------------------------- |
 | Code as craft                | Code as raw material              |
-| Syntax mastery               | System modeling mastery           |
+| Syntax mastery               | System modelling mastery          |
 | Framework expertise          | Problem decomposition expertise   |
 | Boilerplate knowledge        | Context curation                  |
-| Senior dev = language expert| Senior dev = systems orchestrator |
+| Senior dev = language expert | Senior dev = systems orchestrator |
 
-</div>
-
-<!-- Column 2: Mermaid -->
-<div>
-  <div class="mermaid-container">
-    <div class="mermaid">
-      mindmap
-        root((Future of AI Dev))
-          Coding assistant
-          Code review automation
-          CI/CD integration
-          Autonomous agents
-          Regulatory challenges
-          Prompt engineering skills
-    </div>
-  </div>
-</div>
-
----
-
-# What Actually Becomes Valuable
-
-- 🧠 **Deep business understanding**
-- 🔧 **Systems thinking and architecture**
-- ⚙️ **Resilience engineering**
-- 🧪 **Test design and coverage analysis**
-- 🔍 **Code review & AI verification**
-- 🎯 **Prompt engineering and instruction clarity**
-- 🚦 **Ethical, regulatory, and safety oversight**
-- Come back to do something fun in half an hour
 ---
 
 # Takeaway
 
-> "The AI writes more code.  
-> The developer designs better systems."
+> *The AI writes more code.
+> The developer designs better systems.*
 
 ---
 
 # Q\&A
 
-- Real-world experiences?
-- Surprises with Copilot?
-- Fears? Optimism?
+* Real-world experiences?
+* Surprises with AI pair programming?
+* Fears? Optimism?
 
 ---
 
 # Thank You
 
-**Markus / markus.hens@dk.ey.com**
-
+**Markus Friede Hens**
 *No Word. No PowerPoint. Only Markdown, Mermaid, and Code.*
 
 ---
-
