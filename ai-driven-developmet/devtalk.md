@@ -22,10 +22,15 @@ author: Markus Friede Hens
 ---
 
 # About me …
-- Systems engineer by training, programming ~15 years
-- Enterprise Architect and AI consultant
-- Early adopter of AI coding agents in production
-- Driving ~30 % faster delivery from proposal to production
+
+I’m Markus Friede Hens, Associate Partner at EY, with nearly 30 years in IT.  
+I’ve worked across the full software lifecycle — from early system engineering and development, to enterprise architecture, cloud migration, and large-scale modernization.  
+
+I’ve led and guided transformations in regulated industries and the public sector, translating complex compliance and business requirements into practical technical solutions.  
+
+Today, my focus is helping organizations navigate digital transformation with clarity, resilience, and speed — drawing on hard-earned experience, not just buzzwords. 
+
+![bg right:50% w:500](portrait.jpg)
 
 ---
 
@@ -53,15 +58,7 @@ author: Markus Friede Hens
 
 # Modern AI-Driven Dev Pipeline
 
-```mermaid
-flowchart LR
-  A[Proposal & Stakeholder Buy-in] --> B[Architecture & Design Doc]
-  B --> C[Design Review – shred it!]
-  C --> D[Subsystem Docs & Backlog]
-  D --> E[Test-Driven Development]
-  E --> F[Human + AI Code Reviews]
-  F --> G[Staging & Prod Release]
-````
+![](devflow.png)
 
 * **Front-load the pain**: rigorous design and review before code
 * **TDD first**: AI writes tests before features
@@ -127,19 +124,9 @@ Unlike general multi-agent frameworks (CrewAI, LangGraph, OpenAI Agents SDK),
 
 ---
 
-```mermaid
-flowchart TD
-    A[Feature Request] --> B[Orchestrator]
-    B --> C[Shared Memory]
-    B --> D[Agents Pool]
-    D --> E[Researcher]
-    D --> F[Coder]
-    D --> G[Tester]
-    D --> H[Security Auditor]
-    E & F & G & H --> C
-    C --> B
-    B --> I[Validated, Tested Code]
-````
+### Claude Flow Architecture
+
+![](claudeflow.png)
 
 ---
 

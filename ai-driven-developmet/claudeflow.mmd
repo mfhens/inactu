@@ -1,0 +1,11 @@
+flowchart TD
+    A[Feature Request] --> B[Orchestrator]
+    B --> C[Shared Memory]
+    B --> D[Agents Pool]
+    D --> E[Researcher]
+    D --> F[Coder]
+    D --> G[Tester]
+    D --> H[Security Auditor]
+    E & F & G & H --> C
+    C --> B
+    B --> I[Validated, Tested Code]
