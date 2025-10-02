@@ -10,6 +10,8 @@ author: Markus Friede Hens
 ---
 
 # Agenda
+- About me
+- Your experience
 - Why this matters in 2025
 - My experience: 80/10/10 workflow
 - Modern AI-driven development pipeline
@@ -40,6 +42,7 @@ Today, my focus is helping organizations navigate digital transformation with cl
 - Devs are **augmented**, not replaced.
 - Velocity is easy—**reliability and governance** are the hard parts.
 - The question isn’t *if* we use AI, but **how to use it without losing engineering discipline**.
+- Constantly evolving - I redid this presentation three times ...
 
 ---
 
@@ -68,13 +71,10 @@ Today, my focus is helping organizations navigate digital transformation with cl
 
 # Demo (10 min)
 
-**Test-Driven Development with Copilot & Claude**
+**Development with Copilot**
 
-* Start with failing tests for a feature
-* Use AI to implement until tests pass
-* Show where AI stumbles without domain context
-
-> *Velocity without judgment is a liability.*
+* your custom instructions/AGENTS.md/claude.md
+* Peek at an AI-only codebase
 
 ---
 
@@ -124,9 +124,7 @@ Unlike general multi-agent frameworks (CrewAI, LangGraph, OpenAI Agents SDK),
 
 ---
 
-### Claude Flow Architecture
-
-![](claudeflow.png)
+![bg right:90%](claudeflow.png)
 
 ---
 
@@ -150,7 +148,7 @@ Unlike general multi-agent frameworks (CrewAI, LangGraph, OpenAI Agents SDK),
 
 * 🧠 Deep **business understanding**
 * 🔧 **Systems thinking** & architecture
-* ⚙️ **Resilience engineering**
+* ⚙️ **Resilience engineering** and **debugging**
 * 🧪 **Test design** and coverage strategy
 * 🔍 **Code review** & AI verification
 * 🎯 **Prompt design** as a core engineering skill
